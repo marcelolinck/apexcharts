@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../apexcharts.min.js"></script>
+</head>
+
+<body>
+    <h3>Participantes de passatempo</h3>
+    <div id="grafico"></div>
+</body>
+<script>
+    let el = document.getElementById("grafico");
+    
+    let options = {
+        chart: {
+            type: 'bar',
+            width: 700,
+            height: 500,   
+        },
+        series:[
+            {
+                data: [12,35,76,45,23,45,28], 
+            }
+        ],
+        labels: ['2.ª Feira','3.ª Feira','4.ª Feira','5.ª Feira','6.ª Feira','Sábado','Domingo']
+    
+    }
+
+    let chart = new ApexCharts(el, options);
+    
+    chart.render()
+
+</script>
+
+</html>
