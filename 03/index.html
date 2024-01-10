@@ -14,24 +14,64 @@
 </body>
 <script>
     let el = document.getElementById("grafico");
-    
+
     let options = {
         chart: {
             type: 'bar',
             width: 700,
-            height: 500,   
+            height: 500,
         },
-        series:[
+        series: [
             {
-                data: [12,35,76,45,23,45,28], 
+                name: 'Homens',
+                data: [12, 35, 76, 45, 23, 45, 28],
+            },
+            {
+                name: 'Mulheres',
+                data: [22, 18, 32, 56, 63, 26, 42],
             }
         ],
-        labels: ['2.ª Feira','3.ª Feira','4.ª Feira','5.ª Feira','6.ª Feira','Sábado','Domingo']
-    
+
+        //Com o xaxis se tem o mesmo resultado da label
+        xaxis: {
+            categories: ['2.ª Feira', '3.ª Feira', '4.ª Feira', '5.ª Feira', '6.ª Feira', 'Sábado', 'Domingo']
+        },
+
+        //Dessa forma represento a quantidade minima e maxima do eixo y
+        yaxis:{
+            min: 0,
+            max: 100,
+        },
+
+        //Dessa forma consigo colocar linhas para dividir cada coluna.
+        grid: {
+            show:true,
+            xaxis:{
+                lines: {
+                    show: true
+                }
+            }
+        },
+        //As cores de acordo com a quantidade de series
+        colors:['#4466FF','#FF6688'],
+
+        //labels: ['2.ª Feira','3.ª Feira','4.ª Feira','5.ª Feira','6.ª Feira','Sábado','Domingo']
+        plotOptions: {
+            bar:{
+                //Aqui coloca como horizontal ou vertical
+                horizontal: false,
+
+                //Tem que cuidar o camelCase
+                dataLabels:{
+                     position: 'top'
+                    //position: 'bottom',
+                }
+            }
+        }
     }
 
     let chart = new ApexCharts(el, options);
-    
+
     chart.render()
 
 </script>
